@@ -7,33 +7,34 @@ import { useDispatch, useSelector } from "react-redux";
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-      center;
-  background-size: cover;
+  background-color: #f1ebe7;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
+const Label = styled.div`
+  font-weight: 500;
+`
+
 const Wrapper = styled.div`
   width: 25%;
   padding: 20px;
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
   ${mobile({ width: "75%" })}
 `;
 
 const Title = styled.h1`
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 600;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  margin: 10px 0px;
 `;
 
 const Input = styled.input`
@@ -47,10 +48,16 @@ const Button = styled.button`
   width: 40%;
   border: none;
   padding: 15px 20px;
-  background-color: teal;
+  background-color: black;
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+  }
   &:disabled {
     color: green;
     cursor: not-allowed;
@@ -60,8 +67,13 @@ const Button = styled.button`
 const Link = styled.a`
   margin: 5px 0px;
   font-size: 12px;
-  text-decoration: underline;
+  color: black;
+  transition: all 2s ease;
+  text-decoration: none;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Error = styled.span`
@@ -83,12 +95,14 @@ const Login = () => {
       <Wrapper>
         <Title>SIGN IN</Title>
         <Form>
+          <Label>USERNAME</Label>
           <Input
-            placeholder="username"
+            placeholder="Enter username"
             onChange={(e) => setUsername(e.target.value)}
           />
+          <Label>PASSWORD</Label>
           <Input
-            placeholder="password"
+            placeholder="Enter password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
