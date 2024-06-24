@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { logout } from "../redux/userRedux";
 
 const Container = styled.div`
-	height: 60px;
+	height: 50px;
 	background-color: white;
 	color: black;
 	${mobile({ height: "50px" })}

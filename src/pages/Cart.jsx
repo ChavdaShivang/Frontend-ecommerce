@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-	font-weight: 300;
+	font-weight: 600;
 	text-align: center;
 `;
 
@@ -42,6 +42,13 @@ const TopButton = styled.button`
 	background-color: ${(props) =>
 		props.type === "filled" ? "black" : "transparent"};
 	color: ${(props) => props.type === "filled" && "white"};
+	transition: all 0.3s ease;
+	&:hover {
+		background-color: ${(props) =>
+		props.type === "filled" ? "transparent" : "black"};
+		color: ${(props) => props.type === "filled" ? "black" : "white"};
+		border: ${(props) => props.type === "filled" && "1px solid black"};
+	}
 `;
 
 const TopTexts = styled.div`
@@ -160,6 +167,11 @@ const Button = styled.button`
 	background-color: black;
 	color: white;
 	font-weight: 600;
+	transition: all 0.2s ease;
+	&:hover {
+		background-color: white;
+		color: black;
+	}
 `;
 
 const Cart = () => {
@@ -213,10 +225,6 @@ const Cart = () => {
 					<TopButton onClick={handleClick}>
 						CONTINUE SHOPPING
 					</TopButton>
-					<TopTexts>
-						<TopText>Shopping Bag(2)</TopText>
-						<TopText>Your Wishlist (0)</TopText>
-					</TopTexts>
 					<StripeCheckout
 						name="My Shop"
 						image="https://plus.unsplash.com/premium_vector-1717511155224-1b271e3d7bbf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2hvcCUyMHN0b3JlJTIwbG9nb3xlbnwwfHwwfHx8MA%3D%3D"
