@@ -11,7 +11,10 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
+padding: 20px;
   display: flex;
+  background-color: black;
+  color: white;
   ${mobile({ flexDirection: "column" })}
 `;
 
@@ -22,7 +25,9 @@ const Left = styled.div`
   padding: 20px;
 `;
 
-const Logo = styled.h1``;
+const Logo = styled.h1`
+font-weight: 600;
+`;
 
 const Desc = styled.p`
   margin: 20px 0px;
@@ -52,6 +57,7 @@ const Center = styled.div`
 
 const Title = styled.h3`
   margin-bottom: 30px;
+  font-weight: 600;
 `;
 
 const List = styled.ul`
@@ -127,13 +133,13 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{marginRight:"10px"}}/> 622 Dixie Path , South Tobinchester 98336
+          <Room style={{marginRight:"10px"}}/> 56/1, Sector-4/A, Gandhinagar, Gujarat
         </ContactItem>
         <ContactItem>
-          <Phone style={{marginRight:"10px"}}/> +1 234 56 78
+          <Phone style={{marginRight:"10px"}}/> +91 9316831540
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{marginRight:"10px"}} /> contact@lama.dev
+          <MailOutline style={{marginRight:"10px"}} /> contact@shiv.com
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>

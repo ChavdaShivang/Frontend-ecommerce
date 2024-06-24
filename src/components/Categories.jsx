@@ -5,6 +5,7 @@ import CategoryItem from "./CategoryItem";
 
 const Container = styled.div`
   display: flex;
+  margin: 0px 0px 30px;
   padding: 20px;
   justify-content: space-around;
   ${mobile({ padding: "0px", flexDirection:"column" })}
@@ -12,13 +13,15 @@ const Container = styled.div`
 `;
 
 const Heading = styled.div`
+text-align: center;
   width: 98%;
   height: 30px;
   padding: 10px;
   margin: 10px 0px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  background-color: #fff7f7;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.31;
+  background-color: white;
 `;
 
 const Categories = () => {

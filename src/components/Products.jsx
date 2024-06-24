@@ -12,13 +12,15 @@ const Container = styled.div`
 `;
 
 const Heading = styled.div`
+  text-align: center;
   width: 100%;
   height: 30px;
   padding: 10px;
   margin: 10px 0px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  background-color: #fff7f7;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.31;
+  background-color: white;
 `;
 
 const Products = ({ cat, filters, sort }) => {

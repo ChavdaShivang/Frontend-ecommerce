@@ -13,7 +13,7 @@ const Info = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-	border-radius: 20px;
+  border-radius: 20px;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.2);
@@ -23,20 +23,25 @@ const Info = styled.div`
   justify-content: center;
   transition: all 0.5s ease;
   cursor: pointer;
+  &:hover + img {
+    transform: scale(1.2);
+  }
 `;
 
 const Container = styled.div`
   flex: 1;
-  margin: 5px;
+  margin: 15px;
+  overflow: hidden;
   min-width: 280px;
   max-width: 300px;
-  height: 350px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f5fbfd;
   position: relative;
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   &:hover ${Info} {
     opacity: 1;
@@ -55,7 +60,8 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   z-index: 2;
-	border-radius: 10px;
+  border-radius: 10px;
+  transition: all 0.5s ease;
 `;
 
 const Icon = styled.div`
@@ -63,6 +69,7 @@ const Icon = styled.div`
   height: 40px;
   border-radius: 50%;
   background-color: white;
+  color: black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +96,6 @@ const Product = ({ item }) => {
   return (
     <Container>
       <Circle />
-      <Image src={item.img} />
       <Info>
         <Icon onClick={handleClick}>
           <ShoppingCartOutlined />
@@ -103,6 +109,7 @@ const Product = ({ item }) => {
           <FavoriteBorderOutlined />
         </Icon>
       </Info>
+      <Image src={item.img} />
     </Container>
   );
 };

@@ -6,10 +6,11 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
 	width: 100%;
-	height: 100vh;
+	height: 80vh;
 	display: flex;
 	position: relative;
 	overflow: hidden;
+	margin: 20px 0px;
 	${mobile({ display: "none" })}
 `;
 
@@ -66,18 +67,26 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
 	font-size: 70px;
+	color: black;
 `;
 const Desc = styled.p`
 	margin: 50px 0px;
 	font-size: 20px;
 	font-weight: 500;
 	letter-spacing: 3px;
+	color: black;
 `;
 const Button = styled.button`
 	padding: 10px;
 	font-size: 20px;
-	background-color: transparent;
+	background-color: white;
+	color: black;
 	cursor: pointer;
+	transition: all 0.5s ease;
+	&:hover {
+    background-color: black;
+	color: white;
+  }
 `;
 
 const Slider = () => {

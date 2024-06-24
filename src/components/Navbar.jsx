@@ -9,6 +9,8 @@ import { logout } from "../redux/userRedux";
 
 const Container = styled.div`
 	height: 60px;
+	background-color: white;
+	color: black;
 	${mobile({ height: "50px" })}
 `;
 
@@ -24,26 +26,17 @@ const Left = styled.div`
 	flex: 1;
 	display: flex;
 	align-items: center;
+	
 `;
 
 const Language = styled.span`
+font-weight: 600;
 	font-size: 14px;
 	cursor: pointer;
 	${mobile({ display: "none" })}
 `;
 
-const SearchContainer = styled.div`
-	border: 0.5px solid lightgray;
-	display: flex;
-	align-items: center;
-	margin-left: 25px;
-	padding: 5px;
-`;
 
-const Input = styled.input`
-	border: none;
-	${mobile({ width: "50px" })}
-`;
 
 const Center = styled.div`
 	flex: 1;
@@ -64,6 +57,7 @@ const Right = styled.div`
 
 const MenuItem = styled.div`
 	font-size: 14px;
+	font-weight: 600;
 	cursor: pointer;
 	margin-left: 25px;
 	${mobile({ fontSize: "12px", marginLeft: "10px" })}
@@ -83,10 +77,6 @@ const Navbar = () => {
 			<Wrapper>
 				<Left>
 					<Language>EN</Language>
-					<SearchContainer>
-						<Input placeholder="Search" />
-						<Search style={{ color: "gray", fontSize: 16 }} />
-					</SearchContainer>
 				</Left>
 				<Center>
 					<Logo>My Shop</Logo>
@@ -106,7 +96,7 @@ const Navbar = () => {
 					)}
 					<Link to="/cart">
 						<MenuItem>
-							<Badge badgeContent={quantity} color="primary">
+							<Badge badgeContent={quantity} color="success">
 								<ShoppingCartOutlined />
 							</Badge>
 						</MenuItem>
