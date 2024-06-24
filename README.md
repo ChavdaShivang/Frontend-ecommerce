@@ -30,6 +30,4 @@ npm install
 
 ### Executing program
 
-node ./index.js
-OR
-nodemon ./index.js
+npm run dev
