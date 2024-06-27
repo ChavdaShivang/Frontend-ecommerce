@@ -33,7 +33,7 @@ const Success = () => {
           userId: currentUser._id,
           products: cart.products.map((item) => ({
             productId: item._id,
-            quantity: item._quantity,
+            quantity: item.quantity,
           })),
           amount: cart.total,
           address: data.billing_details.address,
@@ -43,7 +43,6 @@ const Success = () => {
       } catch {}
     };
     data && createOrder();
-    // console.log(currentUser.accessToken);
   }, [cart, data, currentUser]);
 
   return (
@@ -64,7 +63,6 @@ const Success = () => {
           <Label>Product title: {product.title}</Label>
           <Label>Quantity: {product.quantity}</Label>
           <Label>Total Amount Payable: {cart.total}</Label>
-          
         </>
       ))}
       <button

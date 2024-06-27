@@ -86,6 +86,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
 
+
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
@@ -106,7 +107,7 @@ const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick} disabled={isFetching}>
+          <Button onClick={handleClick} >
             LOGIN
           </Button>
           {error && <Error>Something went wrong...</Error>}

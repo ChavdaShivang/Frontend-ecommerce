@@ -1,5 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -75,27 +78,80 @@ const Link = styled.a`
 `;
 
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/register", {
+        username,
+        email,
+        password,
+        firstName,
+        lastName,
+      });
+      setSuccess(true);
+      navigate("/login");
+    } catch (err) {
+      setError(err.response.data);
+      console.error("Error registering user:", err.response.data);
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Label>FIRST NAME</Label>
-          <Input placeholder="Enter first name" />
+          <Input
+            placeholder="Enter first name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
           <Label>LAST NAME</Label>
-          <Input placeholder="Enter last name" />
+          <Input
+            placeholder="Enter last name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
           <Label>USERNAME</Label>
-          <Input placeholder="Enter username" />
+          <Input
+            placeholder="Enter username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
           <Label>EMAIL</Label>
-          <Input placeholder="Enter email" />
+          <Input
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <Label>PASSWORD</Label>
-          <Input placeholder="Enter password" />
+          <Input
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button>CREATE</Button>
+          <Button type="submit">CREATE</Button>
         </Form>
+        {error && <div style={{ color: "red" }}>{error}</div>}
+        {success && (
+          <div style={{ color: "green" }}>Account created successfully!</div>
+        )}
         ALREADY HAVE AN ACCOUNT? <Link href="/login">SIGN IN</Link>
       </Wrapper>
     </Container>
